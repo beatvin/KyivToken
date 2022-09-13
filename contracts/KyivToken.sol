@@ -81,7 +81,6 @@ contract KyivToken is IERC20 {
         address recipient,
         uint256 amount
     ) external returns (bool) {
-        require(allowance[sender][msg.sender]<=amount,'Limit overflow');
         allowance[sender][msg.sender] -= amount;
         balances.set(sender, balances.get(sender) - amount);
         balances.set(recipient, balances.get(recipient) + amount);
